@@ -1,43 +1,36 @@
 import Tile from "./letterTile.js";
 import React, { useState, useEffect } from "react";
 
-export default function UserInput() {
-  //få tag på alla tangenter
-  //få varje tryck att spara en tangent
-  //få funktionen att sluta lägga till tryck efter längd på ordet
-  //65 - 90
-
-  const [char, setChar] = useState([" ", " ", " ", " "]);
+export default function UserInput({ wordArray }) {
+  const [chars, setChars] = useState([" ", " ", " ", " ", " ", ""]);
   let [presses, setPresses] = useState(0);
 
-  function tests(e) {
+  function keyboardControl(e) {
     if (e.which >= 65 && e.which <= 90) {
-      if (presses < char.length) {
-        char[presses] = e.key;
-        setChar([...char]);
+      if (presses < chars.length) {
+        chars[presses] = e.key;
+        setChars([...chars]);
         setPresses(presses++);
       }
-
-      console.log(char, presses);
     }
 
     if (e.key === "Backspace") {
-      if (presses < 0) return;
+      if (presses < 1) return;
       setPresses(presses--);
-      char[presses] = "";
-      setChar([...char]);
+      chars[presses] = "";
+      setChars([...chars]);
     }
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", tests);
+    window.addEventListener("keydown", keyboardControl);
   }, []);
 
   return (
-    <div id="user-input">
-      {char.map((index) => {
-        return <Tile letter={index} />;
+    <ul id="user-input">
+      {chars.map((char, index) => {
+        return <Tile key={index} letter={char} />;
       })}
-    </div>
+    </ul>
   );
 }
