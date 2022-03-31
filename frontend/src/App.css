@@ -20,7 +20,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: auto;
 }
+
+.attempt-window{
+  display: flex;
+  flex-direction: column-reverse;
+  height: 600px;
+  width: 50px;
+  overflow-y: hidden;
+  
+  border: 1px solid red;
+}
+
+.attempt-row{
+  display: flex;
+  margin: 10px 0px;
+  gap: 20px;
+}
+
 #user-input {
   display: flex;
   gap: 20px;
