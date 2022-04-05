@@ -1,3 +1,4 @@
-export default function Tile({ letter }) {
-  return <li className="letter-tile">{letter}</li>;
+export default function Tile({ letter, classNme }) {
+  let classes = `letter-tile ` + classNme;
+  return <li className={classes}>{letter}</li>;
 }
