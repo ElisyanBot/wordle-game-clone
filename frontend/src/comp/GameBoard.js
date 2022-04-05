@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import AttemptDisplay from "./AttemptDisplay.js";
 import UserInput from "./UserInput.js";
 
-// async function getAttemptFromServer() {}
-
-export default function GameBoard({wordLength = 10, multiChar = true}) {
+export default function GameBoard({ wordLength = 5, multiChar = true }) {
   const [rows, setRows] = useState([]);
   const [chars, setChars] = useState([]);
   let [presses, setPresses] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:5080/word?wordLength=${wordLength}&&multiChar=${multiChar}`)
+    fetch(
+      `http://localhost:5080/word?wordLength=${wordLength}&&multiChar=${multiChar}`
+    )
       .then((res) => res.json())
       .then((data) => setChars(data));
-  }, []);
+  }, [wordLength, multiChar]);
 
   function handleKeyPress(e) {
     if (e.which >= 65 && e.which <= 90) {
@@ -32,10 +32,22 @@ export default function GameBoard({wordLength = 10, multiChar = true}) {
     }
 
     if (e.key === "Enter") {
-      // postWordToserver();
-      // rows.push(getAttemptFromServer());
-      rows.push([...chars]);
-      setRows([...rows]);
+      const req = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ test: chars }),
+      };
+
+      fetch("http://localhost:5080/game", req)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          rows.push(data);
+          setRows([...rows]);
+        });
     }
   }
 
