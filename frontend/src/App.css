@@ -67,3 +67,10 @@ body {
 
   list-style: none;
 }
+
+li.misplaced{
+  background-color: #FAF1A0;
+}
+li.correct{
+  background-color: #ACDEAB;
+}
