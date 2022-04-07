@@ -19,7 +19,7 @@ app
     })
   )
   .set("view engine", "hbs")
-  .set("views", "./server/views");
+  .set("views", "./src/views");
 
 //routes
 app.get("/", (req, res) => {
