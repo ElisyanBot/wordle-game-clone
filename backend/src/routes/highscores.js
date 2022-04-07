@@ -1,11 +1,18 @@
 import express from "express";
+import cors from "cors";
 import createHighscoreInstant, {
   Highscore,
 } from "../mongoDB/highscoreModel.js";
 import filter from "../js/filterHighscore.js";
 
-const route = express.Router();
-route.use(express.json());
+const route = express
+  .Router()
+  .use(
+    cors({
+      origin: "http://localhost:3000",
+    })
+  )
+  .use(express.json());
 
 route
   .get("/", async (req, res) => {
