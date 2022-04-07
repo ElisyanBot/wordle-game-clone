@@ -15,7 +15,8 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
     "mongoose": "^6.2.9",
-    "node-fetch": "^3.2.3"
+    "node-fetch": "^3.2.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "jest": "^27.5.1",
