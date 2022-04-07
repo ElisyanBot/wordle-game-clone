@@ -1,14 +1,20 @@
 import "./App.css";
 import { useState } from "react";
 
-import CreateGame from "./comp/CreateGamePage.js";
+//game pages comps
+import CreateGame from "./comp/inGame/CreateGamePage.js";
 import GameBoard from "./comp/inGame/GameBoard.js";
 import SumbitHighscore from "./comp/submitHighscore.js";
+import ThxForPlaying from "./comp/inGame/ThxForPlaying.js";
 
 function App() {
+  //overall storage of user-data
   const [gameObj, setGameObj] = useState();
+  //game states
   const [startGame, setStartGame] = useState(false);
   const [endGame, setEndGame] = useState(false);
+  const [sentScore, setSentScore] = useState(false);
+  //get word
   const [wordLength, setWordLength] = useState(2);
   const [multiChar, setMultiChar] = useState(false);
 
@@ -19,13 +25,24 @@ function App() {
           wordLength={wordLength}
           multiChar={multiChar}
           setObj={setGameObj}
-          obj={gameObj}
+          setEndGame={setEndGame}
+          setStartGame={setStartGame}
         />
       );
     }
 
     if (endGame) {
-      return <SumbitHighscore />;
+      return (
+        <SumbitHighscore
+          gameObj={gameObj}
+          setSentScore={setSentScore}
+          setEndGame={setEndGame}
+        />
+      );
+    }
+
+    if (sentScore) {
+      return <ThxForPlaying />;
     }
 
     return (
