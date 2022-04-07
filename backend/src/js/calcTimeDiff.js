@@ -4,10 +4,10 @@ export default function calcTimeDiff(start, end) {
   const dateFuture = end;
   const dateNow = start;
   
-  const seconds = Math.floor((dateFuture - (dateNow))/1000);
-  const minutes = Math.floor(seconds/60);
-  const hours = Math.floor(minutes/60);
-  const days = Math.floor(hours/24);
+  let seconds = Math.floor((dateFuture - (dateNow))/1000);
+  let minutes = Math.floor(seconds/60);
+  let hours = Math.floor(minutes/60);
+  let days = Math.floor(hours/24);
   
   hours = hours-(days*24);
   minutes = minutes-(days*24*60)-(hours*60);
