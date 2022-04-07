@@ -6,7 +6,7 @@ export default function CreateGame({
    
   return (
     <div className="game-settings">
-      <label> lenght of word</label>
+      <label> length of word</label>
       <select onChange={(e) => setWordLength(e.target.value)} id="wordLength">
         <option value="2">2</option>
         <option value="3">3</option>
