@@ -56,12 +56,11 @@ router.post("/", (req, res) => {
 
   if (countCorr === checkedWord.length) {
     game.endTime = new Date();
-    game.totalTome = calcTimeDiff(game.startTime, game.endTime);
-    res.json({ checkedWord, game });
+    game.totalTime = calcTimeDiff(game.startTime, game.endTime);
+    res.json({ checkedWord, game , win: true});
   } else {
-    res.json({ checkedWord });
-    console.log(game.word);
+    res.json({ checkedWord, win: false});
   }
 });
 
-export default router;
+export default route;
