@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export const Highscore = mongoose.model("Highscore", {
   userName: String,
   wordleWord: String,
-  completeTime: Number,
+  completeTime: String,
 });
 
 export default async function createHighscoreInstant(docObj) {
