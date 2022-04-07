@@ -1,7 +1,6 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import highscoreRoute from "./routes/highscores.js";
-import wordsRoute from "./routes/word.js";
 import gamesRoute from "./routes/game.js";
 
 //mongoDb server
@@ -28,7 +27,6 @@ app.get("/", (req, res) => {
   //react || informationssidan?
 });
 app.use("/highscores", highscoreRoute);
-app.use("/word", wordsRoute);
 app.use("/game", gamesRoute);
 
 app.listen(5080, () => {
