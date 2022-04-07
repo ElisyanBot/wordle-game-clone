@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import AttemptDisplay from "./AttemptDisplay.js";
 import UserInput from "../UserInput.js";
+import ExitBtn from "../exitBtn.js";
 
-export default function GameBoard({ wordLength, multiChar, setObj, obj }) {
+export default function GameBoard({ wordLength, multiChar, setObj , setEndGame,  setStartGame}) {
   const [rows, setRows] = useState([]);
   const [gameId, setGameId] = useState("");
   const [chars, setChars] = useState([]);
@@ -51,7 +52,12 @@ export default function GameBoard({ wordLength, multiChar, setObj, obj }) {
         .then((data) => {
           rows.push(data.checkedWord);
           setRows([...rows]);
-          setObj(data.game);
+          
+          if(data.win === true){
+            setObj(data.game);
+            setStartGame(false);
+            setEndGame(true);
+          }
         });
     }
   }
@@ -66,6 +72,7 @@ export default function GameBoard({ wordLength, multiChar, setObj, obj }) {
     >
       <AttemptDisplay rows={rows} />
       <UserInput wordArray={chars} />
+      <ExitBtn />
     </div>
   );
 }
