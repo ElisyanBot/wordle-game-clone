@@ -4,7 +4,7 @@ import { useState } from "react";
 //game pages comps
 import CreateGame from "./comp/inGame/CreateGamePage.js";
 import GameBoard from "./comp/inGame/GameBoard.js";
-import SumbitHighscore from "./comp/submitHighscore.js";
+import SumbitHighscore from "./comp/inGame/submitHighscore.js";
 import ThxForPlaying from "./comp/inGame/ThxForPlaying.js";
 
 function App() {
