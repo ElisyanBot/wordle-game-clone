@@ -3,11 +3,13 @@ import express from "express";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 //functions
-import fetchDictionary from "../js/fetchDictionary.js";
-import renderInputTiles from "../js/renderInputTile.js";
-import randomizeWord from "../js/randomizeWord.js";
-import spellcheck from "../js/spellCheck.js";
-import calcTimeDiff from "../js/calcTimeDiff.js";
+import fetchDictionary from "../../js/fetchDictionary.js";
+import renderInputTiles from "../../js/renderInputTile.js";
+import randomizeWord from "../../js/randomizeWord.js";
+import spellcheck from "../../js/spellCheck.js";
+import calcTimeDiff from "../../js/calcTimeDiff.js";
+//gameOBJ
+import game from "../../js/gameObj.js"
 
 const router = express
   .Router()
@@ -18,15 +20,8 @@ const router = express
   )
   .use(express.json());
 
-const game = {
-  word: "",
-  id: "",
-  startTime: "",
-  endTime: "",
-};
-
 //GET
-router.get("/", async (req, res) => {
+router.get("/word", async (req, res) => {
   const { wordLength, multiChar } = req.query;
   const wordList = await fetchDictionary();
 
@@ -43,7 +38,7 @@ router.get("/", async (req, res) => {
 });
 
 //POST
-router.post("/", (req, res) => {
+router.post("/word", (req, res) => {
   if (req.body.id !== game.id) return;
 
   const userInp = req.body.userInput.join("");
@@ -63,4 +58,4 @@ router.post("/", (req, res) => {
   }
 });
 
-export default route;
+export default router;

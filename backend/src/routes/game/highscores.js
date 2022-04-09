@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import createHighscoreInstant, {
   Highscore,
-} from "../mongoDB/highscoreModel.js";
-import filter from "../js/filterHighscore.js";
+} from "../../mongoDB/highscoreModel.js";
+import filter from "../../js/filterHighscore.js";
 
 const route = express
   .Router()
