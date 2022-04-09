@@ -1,12 +1,13 @@
 //node
 import path from "path";
-
 //express
 import express from "express";
 import { engine } from "express-handlebars";
 //routes
-import highscoreRoute from "./routes/highscores.js";
-import apiRoute from "./routes/api.js";
+import aboutRoute from "./routes/game/about.js";
+import gameRoute from "./routes/game/gameRoute.js";
+import highscoreRoute from "./routes/game/highscores.js";
+import apiWordRoute from "./routes/api/word.js";
 
 //mongoDb server
 import mongoose from "mongoose";
@@ -32,20 +33,11 @@ app
   .use("/static", express.static(path.resolve("./public"))); //server
 
 //routes
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve("../frontend/build/index.html"), "utf-8");
- 
-});
-
-app.get("/test", (req, res) => {
-  res.send("hello world")
- //react || informationssidan?
-});
-
-console.log(path.resolve("../frontend/build/static"));
-
-app.use("/highscores", highscoreRoute);
-app.use("/api", apiRoute);
+app
+  .use("/", aboutRoute)
+  .use("/game", gameRoute)
+  .use("/highscores", highscoreRoute)
+  .use("/api", apiWordRoute);
 
 app.listen(5080, () => {
   console.log(`Example app listening on port 5080`);
