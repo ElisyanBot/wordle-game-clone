@@ -3,10 +3,12 @@ import path from "path";
 //express
 import express from "express";
 import { engine } from "express-handlebars";
-//routes
+//routes pages
 import aboutRoute from "./routes/game/about.js";
 import gameRoute from "./routes/game/gameRoute.js";
-import highscoreRoute from "./routes/game/highscores.js";
+import highscoreRoute from "./routes/game/highscore.js";
+//routes api
+import apiHighscoreRoute from "./routes/api/highscores.js";
 import apiWordRoute from "./routes/api/word.js";
 
 //mongoDb server
@@ -36,7 +38,8 @@ app
 app
   .use("/", aboutRoute)
   .use("/game", gameRoute)
-  .use("/highscores", highscoreRoute)
+  .use("/highscore", highscoreRoute)
+  .use("/api", apiHighscoreRoute)
   .use("/api", apiWordRoute);
 
 app.listen(5080, () => {
