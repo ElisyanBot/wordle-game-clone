@@ -30,7 +30,7 @@ app
 //static
 app
   .use("/static", express.static(path.resolve("../frontend/build/static"))) //react
-  .use("/static", express.static(path.resolve("./public"))); //server
+  .use("/public", express.static(path.resolve("../backend/public"))); //server
 
 //routes
 app
