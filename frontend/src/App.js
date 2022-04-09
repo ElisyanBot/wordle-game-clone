@@ -6,6 +6,7 @@ import CreateGame from "./comp/inGame/CreateGamePage.js";
 import GameBoard from "./comp/inGame/GameBoard.js";
 import SumbitHighscore from "./comp/inGame/submitHighscore.js";
 import ThxForPlaying from "./comp/inGame/ThxForPlaying.js";
+import HeaderNav from "./comp/inGame/HeaderNav.js";
 
 function App() {
   //overall storage of user-data
@@ -54,7 +55,10 @@ function App() {
     );
   };
 
-  return <div className="App">{PageDisplay()}</div>;
+  return <div className="App">
+    <HeaderNav />
+    {PageDisplay()}
+    </div>;
 }
 
 export default App;
