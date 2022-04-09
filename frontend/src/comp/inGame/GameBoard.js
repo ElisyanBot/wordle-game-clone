@@ -11,7 +11,7 @@ export default function GameBoard({ wordLength, multiChar, setObj , setEndGame, 
 
   useEffect(() => {
     fetch(
-      `http://localhost:5080/game?wordLength=${wordLength}&&multiChar=${multiChar}`
+      `http://localhost:5080/api/word?wordLength=${wordLength}&&multiChar=${multiChar}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -45,7 +45,7 @@ export default function GameBoard({ wordLength, multiChar, setObj , setEndGame, 
         body: JSON.stringify({ userInput: chars, id: gameId }),
       };
 
-      fetch("http://localhost:5080/game", req)
+      fetch("http://localhost:5080/api/word", req)
         .then((res) => {
           return res.json();
         })
