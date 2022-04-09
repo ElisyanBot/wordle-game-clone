@@ -9,8 +9,10 @@ route.get("/", async (req, res) => {
 
 export default route;
 
-async function getHighscores() {
-  const res = await fetch("http://localhost:5080/api/highscores");
+async function getHighscores(wordLength = 0, pageSize = 10, pageNr = 1) {
+  const res = await fetch(
+    `http://localhost:5080/api/highscores?wordLength=${wordLength}&pageSize=${pageSize}&pageNr=${pageNr}`
+  );
   const data = res.json();
   return data;
 }
