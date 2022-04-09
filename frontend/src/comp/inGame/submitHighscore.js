@@ -17,7 +17,7 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
       }),
     };
 
-    fetch("http://localhost:5080/highscores", req)
+    fetch("http://localhost:5080/api/highscores", req)
       .then((res) => {
         return res.json();
       })
@@ -32,6 +32,7 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
     <div className="Submit-score-form">
       <p>{gameObj.word}</p>
       <p>{gameObj.totalTime}</p>
+      <p>{gameObj.attempts}</p>
 
       <input
         placeholder="Enter name"

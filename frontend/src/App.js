@@ -18,6 +18,8 @@ function App() {
   //get word
   const [wordLength, setWordLength] = useState(2);
   const [multiChar, setMultiChar] = useState(false);
+  //attempt rows
+  const [rows, setRows] = useState([]);
 
   const PageDisplay = () => {
     if (startGame) {
@@ -25,9 +27,12 @@ function App() {
         <GameBoard
           wordLength={wordLength}
           multiChar={multiChar}
+          rows={rows}
+          setRows={setRows}
           setObj={setGameObj}
           setEndGame={setEndGame}
           setStartGame={setStartGame}
+
         />
       );
     }
@@ -56,7 +61,7 @@ function App() {
   };
 
   return <div className="App">
-    <HeaderNav />
+    <HeaderNav attempts={rows.length}/>
     {PageDisplay()}
     </div>;
 }

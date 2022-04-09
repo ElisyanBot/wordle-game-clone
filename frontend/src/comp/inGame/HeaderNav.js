@@ -1,3 +1,5 @@
+import ExitBtn from "../exitBtn";
+
 export default function HeaderNav({time, attempts}) {
   return (
     <nav className="header-nav">
@@ -9,6 +11,8 @@ export default function HeaderNav({time, attempts}) {
         <li>
           attempts: {attempts}
         </li>
+        
+        <ExitBtn innerText={"EXIT"}/>
       </ul>
     </nav>
   );
