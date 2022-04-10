@@ -49,7 +49,7 @@ router.post("/word", (req, res) => {
     if (letter.result === "correct") countCorr++;
   });
 
-  if (countCorr === checkedWord.length && checkedWord.length > 0) {
+  if (countCorr === game.word.length) {
     game.endTime = new Date();
     game.totalTime = calcTimeDiff(game.startTime, game.endTime);
     res.json({ checkedWord, game, win: true });
