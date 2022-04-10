@@ -1,6 +1,5 @@
 //npm
 import express from "express";
-import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 //functions
 import fetchDictionary from "../../js/fetchDictionary.js";
@@ -13,11 +12,6 @@ import game from "../../js/gameObj.js";
 
 const router = express
   .Router()
-  .use(
-    cors({
-      origin: "http://localhost:3000",
-    })
-  )
   .use(express.json());
 
 //GET
