@@ -8,8 +8,7 @@ export default function GameBoard({
   rows,
   setRows,
   setObj,
-  setEndGame,
-  setStartGame,
+  setGamePhases,
 }) {
   const [gameId, setGameId] = useState("");
   const [chars, setChars] = useState([]);
@@ -52,7 +51,6 @@ export default function GameBoard({
       });
 
       const data = await res.json();
-
       rows.push(data.checkedWord);
       setRows([...rows]);
 
@@ -60,8 +58,7 @@ export default function GameBoard({
         data.game.attempts = rows.length;
         data.game.multiChar = multiChar.toString();
         setObj(data.game);
-        setStartGame(false);
-        setEndGame(true);
+        setGamePhases({ start: false, end: true, sendScore: false });
       }
     }
   }

@@ -1,5 +1,5 @@
 export default function CreateGame({
-  setCreateGame,
+  setGamePhases,
   setWordLength,
   setMultiChar,
 }) {
@@ -27,7 +27,13 @@ export default function CreateGame({
           onChange={(e) => setMultiChar(e.target.checked)}
         />
       </div>
-      <button onClick={() => setCreateGame(true)}>Start Game</button>
+      <button
+        onClick={() =>
+          setGamePhases({ start: true, end: false, sendScore: false })
+        }
+      >
+        Start Game
+      </button>
     </div>
   );
 }

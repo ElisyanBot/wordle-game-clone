@@ -12,9 +12,11 @@ function App() {
   //overall storage of user-data
   const [gameObj, setGameObj] = useState();
   //game states
-  const [startGame, setStartGame] = useState(false);
-  const [endGame, setEndGame] = useState(false);
-  const [sentScore, setSentScore] = useState(false);
+  const [gamePhases, setGamePhases] = useState({
+    start: false,
+    end: false,
+    sendScore: false,
+  });
   //get word
   const [wordLength, setWordLength] = useState(2);
   const [multiChar, setMultiChar] = useState(false);
@@ -22,7 +24,7 @@ function App() {
   const [rows, setRows] = useState([]);
 
   const PageDisplay = () => {
-    if (startGame) {
+    if (gamePhases.start) {
       return (
         <GameBoard
           wordLength={wordLength}
@@ -30,40 +32,36 @@ function App() {
           rows={rows}
           setRows={setRows}
           setObj={setGameObj}
-          setEndGame={setEndGame}
-          setStartGame={setStartGame}
-
+          setGamePhases={setGamePhases}
         />
       );
     }
 
-    if (endGame) {
+    if (gamePhases.end) {
       return (
-        <SumbitHighscore
-          gameObj={gameObj}
-          setSentScore={setSentScore}
-          setEndGame={setEndGame}
-        />
+        <SumbitHighscore gameObj={gameObj} setGamePhases={setGamePhases} />
       );
     }
 
-    if (sentScore) {
+    if (gamePhases.sendScore) {
       return <ThxForPlaying />;
     }
 
     return (
       <CreateGame
-        setCreateGame={setStartGame}
+        setGamePhases={setGamePhases}
         setMultiChar={setMultiChar}
         setWordLength={setWordLength}
       />
     );
   };
 
-  return <div className="App">
-    <HeaderNav attempts={rows.length}/>
-    {PageDisplay()}
-    </div>;
+  return (
+    <div className="App">
+      <HeaderNav attempts={rows.length} />
+      {PageDisplay()}
+    </div>
+  );
 }
 
 export default App;

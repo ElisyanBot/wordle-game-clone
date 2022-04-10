@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ExitBtn from "../exitBtn.js";
 
-export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
+export default function SumbitHighscore({ gameObj, setGamePhases }) {
   const [userInput, setUserInput] = useState("");
 
   function sendScore(e) {
@@ -16,7 +16,7 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
         attempts: gameObj.attempts,
         completeTime: gameObj.totalTime,
         wordLength: gameObj.wordLength,
-        multiChar: gameObj.multiChar
+        multiChar: gameObj.multiChar,
       }),
     };
 
@@ -27,13 +27,13 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
       .then((data) => {
         console.log(data);
       });
-    setEndGame(false);
-    setSentScore(true);
+      
+    setGamePhases({ start: false, end: false, sendScore: true });
   }
 
   return (
     <div className="submit-score-form">
-      <h2> send score </h2> 
+      <h2> send score </h2>
       <div className="text-container">
         <p>
           <b>Word:</b> {gameObj.word}
