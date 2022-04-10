@@ -20,11 +20,11 @@ route.get("/highscores", async (req, res) => {
 
   //pagnation
   if (req.query.pageSize > 0) {
-    return res.send(
+    return res.status(201).send(
       pagination(await data, req.query.pageSize, req.query.pageNr)
     );
   }
-  res.send({ data });
+  res.status(200).send({ data });
 });
 
 //post

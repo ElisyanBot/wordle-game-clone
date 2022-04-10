@@ -8,7 +8,7 @@ const route = express
 
 route
   .get("/", async (req, res) => {
-    res.sendFile(path.resolve("../frontend/build/index.html"), "utf-8");
+    res.status(308).sendFile(path.resolve("../frontend/build/index.html"), "utf-8");
   })
 
 export default route;

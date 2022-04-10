@@ -46,9 +46,9 @@ router.post("/word", (req, res) => {
   if (countCorr === game.word.length) {
     game.endTime = new Date();
     game.totalTime = calcTimeDiff(game.startTime, game.endTime);
-    res.json({ checkedWord, game, win: true });
+    res.status(200).json({ checkedWord, game, win: true });
   } else {
-    res.json({ checkedWord, win: false });
+    res.status(200).json({ checkedWord, win: false });
   }
 });
 
