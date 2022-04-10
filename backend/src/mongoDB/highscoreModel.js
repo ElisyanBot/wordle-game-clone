@@ -10,7 +10,6 @@ export const Highscores = mongoose.model("Highscores", {
 });
 
 export default async function createHighscoreInstant(obj) {
-  console.log(obj)
   const highscore = new Highscores(obj);
   return await highscore.save();
 }

@@ -24,7 +24,7 @@ route.get("/highscores", async (req, res) => {
       pagination(await data, req.query.pageSize, req.query.pageNr)
     );
   }
-  res.send(data);
+  res.send({ data });
 });
 
 //post

@@ -104,6 +104,7 @@ div.welcome-msg a{
   border-radius: 5px;
 }
 
+
 div.welcome-msg .text-container{
   color: white;
 
@@ -358,4 +359,24 @@ ul.score-list li.score-list-item,
 
 ul.score-list li.score-list-item p{
   text-align: center;
+}
+
+.select-page-container{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+
+  margin-top: 15px;
+}
+
+.select-page-container a{
+  background-color: #5D78B1;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+
+  text-decoration: none;
+
+  border-radius: 5px;
 }

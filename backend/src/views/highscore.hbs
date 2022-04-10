@@ -3,4 +3,10 @@
 </header>
 <main>
   {{>scoreboard}}
+
+  <div class="select-page-container">
+     {{#each pages}}
+    <a href="http://localhost:5080/highscore?page={{{this}}}" >{{ this}}</a>
+      {{/each}}
+  </div>
 </main>
