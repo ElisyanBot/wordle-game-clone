@@ -9,7 +9,7 @@ import randomizeWord from "../../js/randomizeWord.js";
 import spellcheck from "../../js/spellCheck.js";
 import calcTimeDiff from "../../js/calcTimeDiff.js";
 //gameOBJ
-import game from "../../js/gameObj.js"
+import game from "../../js/gameObj.js";
 
 const router = express
   .Router()
@@ -45,16 +45,16 @@ router.post("/word", (req, res) => {
   const checkedWord = spellcheck(game.word, userInp);
 
   let countCorr = 0;
-  checkedWord.forEach((Letter) => {
-    if (Letter.result === "correct") countCorr++;
+  checkedWord.forEach((letter) => {
+    if (letter.result === "correct") countCorr++;
   });
 
-  if (countCorr === checkedWord.length) {
+  if (countCorr === checkedWord.length && checkedWord.length > 0) {
     game.endTime = new Date();
     game.totalTime = calcTimeDiff(game.startTime, game.endTime);
-    res.json({ checkedWord, game , win: true});
+    res.json({ checkedWord, game, win: true });
   } else {
-    res.json({ checkedWord, win: false});
+    res.json({ checkedWord, win: false });
   }
 });
 
