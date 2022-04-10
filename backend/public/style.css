@@ -8,6 +8,7 @@ html{
 body{
   background: linear-gradient(180deg, #5171B5 0%, rgba(93, 120, 177, 0) 18.11%, rgba(93, 120, 177, 0) 51.44%), #79A7D3;
   text-transform: uppercase;
+  min-height: 100vh;
 }
 
 header{

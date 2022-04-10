@@ -13,7 +13,10 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
       body: JSON.stringify({
         userName: userInput,
         wordleWord: gameObj.word,
+        attempts: gameObj.attempts,
         completeTime: gameObj.totalTime,
+        wordLength: gameObj.wordLength,
+        multiChar: gameObj.multiChar
       }),
     };
 

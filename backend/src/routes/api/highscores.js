@@ -1,7 +1,7 @@
 import express from "express";
 //mongoDB/mongoose
 import createHighscoreInstant, {
-  Highscore,
+  Highscores,
 } from "../../mongoDB/highscoreModel.js";
 //funcitons
 import filter from "../../js/filterHighscore.js";
@@ -13,14 +13,15 @@ const route = express.Router().use(express.json());
 route.get("/highscores", async (req, res) => {
   let data;
   if (req.query.wordLength > 0) {
-    data = filter(await Highscore.find().lean(), req.query.wordLength);
+    data = filter(await Highscores.find().lean(), req.query.wordLength);
   } else {
-    data = await Highscore.find().lean();
+    data = await Highscores.find().lean();
   }
 
   const newData = data.map((item) => ({
     userName: item.userName,
     wordleWord: item.wordleWord,
+    attempts: item.attempts,
     completeTime: item.completeTime,
   }));
 
