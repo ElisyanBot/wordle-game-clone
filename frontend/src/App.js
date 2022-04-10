@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      <HeaderNav attempts={rows.length} />
+      <HeaderNav gamePhases={gamePhases} attempts={rows.length} />
       {PageDisplay()}
     </div>
   );
