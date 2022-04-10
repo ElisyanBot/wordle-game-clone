@@ -26,7 +26,7 @@ export default function GameBoard({
       });
   }, [wordLength, multiChar]);
 
-  function handleKeyPress(e) {
+  async function handleKeyPress(e) {
     if (e.which >= 65 && e.which <= 90) {
       if (presses < chars.length) {
         chars[presses] = e.key;
@@ -43,29 +43,26 @@ export default function GameBoard({
     }
 
     if (e.key === "Enter") {
-      const req = {
+      const res = await fetch("http://localhost:5080/api/word", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ userInput: chars, id: gameId }),
-      };
+      });
 
-      fetch("http://localhost:5080/api/word", req)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          rows.push(data.checkedWord);
-          setRows([...rows]);
-          if (data.win === true) {
-            data.game.attempts = rows.length;
-            data.game.multiChar =  multiChar.toString();
-            setObj(data.game);
-            setStartGame(false);
-            setEndGame(true);
-          }
-        });
+      const data = await res.json();
+
+      rows.push(data.checkedWord);
+      setRows([...rows]);
+
+      if (data.win === true) {
+        data.game.attempts = rows.length;
+        data.game.multiChar = multiChar.toString();
+        setObj(data.game);
+        setStartGame(false);
+        setEndGame(true);
+      }
     }
   }
 
