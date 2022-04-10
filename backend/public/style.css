@@ -88,6 +88,7 @@ div.welcome-msg{
 }
 
 div.welcome-msg a{
+  background-color:#ACDEAB;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,6 +105,11 @@ div.welcome-msg a{
   border-radius: 5px;
 }
 
+div.welcome-msg a:hover{
+  background-color: #eaeaea;
+  color: black;
+  cursor: pointer;
+ }
 
 div.welcome-msg .text-container{
   color: white;
