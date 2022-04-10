@@ -4,7 +4,7 @@ import ExitBtn from "../exitBtn.js";
 export default function SumbitHighscore({ gameObj, setGamePhases }) {
   const [userInput, setUserInput] = useState("");
 
-  function sendScore(e) {
+  function sendScore() {
     const req = {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ export default function SumbitHighscore({ gameObj, setGamePhases }) {
       .then((data) => {
         console.log(data);
       });
-      
+
     setGamePhases({ start: false, end: false, sendScore: true });
   }
 
@@ -54,7 +54,6 @@ export default function SumbitHighscore({ gameObj, setGamePhases }) {
 
       <input
         placeholder="Enter name"
-        required
         type="text"
         onChange={(e) => {
           setUserInput(e.target.value);
@@ -65,7 +64,8 @@ export default function SumbitHighscore({ gameObj, setGamePhases }) {
         <button
           type="submit"
           onClick={() => {
-            sendScore();
+            if(userInput.length <= 0) alert("you need to enter a name");
+            if (userInput.length > 0) sendScore();
           }}
         >
           send score
