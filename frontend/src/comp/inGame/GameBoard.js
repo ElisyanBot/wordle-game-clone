@@ -58,9 +58,9 @@ export default function GameBoard({
         .then((data) => {
           rows.push(data.checkedWord);
           setRows([...rows]);
-
           if (data.win === true) {
             data.game.attempts = rows.length;
+            data.game.multiChar =  multiChar.toString();
             setObj(data.game);
             setStartGame(false);
             setEndGame(true);

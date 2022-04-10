@@ -29,10 +29,25 @@ export default function SumbitHighscore({ gameObj, setSentScore, setEndGame }) {
   }
 
   return (
-    <div className="Submit-score-form">
-      <p>{gameObj.word}</p>
-      <p>{gameObj.totalTime}</p>
-      <p>{gameObj.attempts}</p>
+    <div className="submit-score-form">
+      <h2> send score </h2> 
+      <div className="text-container">
+        <p>
+          <b>Word:</b> {gameObj.word}
+        </p>
+        <p>
+          <b>Time:</b> {gameObj.totalTime}
+        </p>
+        <p>
+          <b>attempts: </b> {gameObj.attempts}
+        </p>
+        <p>
+          <b>Word length:</b> {gameObj.word.length}
+        </p>
+        <p>
+          <b>mulitple chars:</b> {gameObj.multiChar}
+        </p>
+      </div>
 
       <input
         placeholder="Enter name"
