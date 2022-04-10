@@ -48,23 +48,25 @@ nav.header-nav ul li{
   font-size: 25px;
   font-weight: 400;
   line-height: 30px;
-
 }
 
-nav.header-nav ul li.woordle-logo{
-  background-image: url(./img/wordle-logo.svg);
-  background-repeat: no-repeat;
-  width: 217px;
-  height: 110px;
-}
 
-nav.header-nav ul a{
+
+nav.header-nav ul li a{
   color: inherit;
   text-decoration: none;
 }
 
-nav.header-nav ul a:hover {
+nav.header-nav ul li a:hover {
   color: #ACDEAB;
+}
+
+nav.header-nav ul li a.wordle-logo{
+  display: block;
+  background-image: url(./img/wordle-logo.svg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 110px;
 }
 
 /*====== welcome ======== */

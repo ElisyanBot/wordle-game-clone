@@ -11,8 +11,8 @@ export default function HeaderNav({ gamePhases, attempts }) {
       interval = setInterval(() => {
         setSec((sec) => sec + 1);
       }, 1000);
-    } else{
-      clearInterval(interval)
+    } else {
+      clearInterval(interval);
     }
 
     return () => clearInterval(interval);
@@ -23,9 +23,12 @@ export default function HeaderNav({ gamePhases, attempts }) {
       <nav className="header-nav">
         <ul className="header-ul">
           <li>
-            TIME: {Math.floor(0 +((sec / 60) % 60))} m {sec % 60} s
+            TIME: {Math.floor(0 + ((sec / 60) % 60))} m {sec % 60} s
           </li>
-          <li className="woordle-logo"></li>
+          <li>
+            <a class="wordle-logo" href="http://localhost:5080/">  </a>
+          </li>
+
           <li>attempts: {attempts}</li>
 
           <ExitBtn innerText={"EXIT"} />

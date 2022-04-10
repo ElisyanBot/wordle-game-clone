@@ -115,7 +115,7 @@ nav.header-nav ul.header-ul{
 }
 
 nav.header-nav ul li{
-  width: 217px;
+  width: 220px;
   text-align: center;
   font-size: 25px;
   font-weight: 400;
@@ -123,13 +123,14 @@ nav.header-nav ul li{
 
 }
 
-nav.header-nav ul li.woordle-logo{
-  /* margin:0 100px; */
-  background-image: url(D:\Programmering\Lernia\wordle\frontend\public\wordle-logo.svg);
+nav.header-nav ul li .wordle-logo{
+  display: block;
+  background-image: url(../public/wordle-logo.svg);
   background-repeat: no-repeat;
-  width: 217px;
+  width: 100%;
   height: 100px;
 }
+
 nav.header-nav ul .exit-btn{
   position: absolute;
   right: -15%;
