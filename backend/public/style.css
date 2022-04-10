@@ -163,7 +163,7 @@ section#controll h2{
 
 }
 
-section#controll div.test{
+section#controll div.logo-container{
   /* transform: translate(0, 0); */
   display: flex;
   align-items: center;
@@ -171,7 +171,7 @@ section#controll div.test{
   width: 1196px;
 }
 
-div.controll-instruction{
+.controll-instruction{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,18 +181,18 @@ div.controll-instruction{
 }
 
 
-div.controll-instruction img{
+.controll-instruction img{
   max-width: 100px;
   max-height: 80px;
 }
 
-div.controll-instruction h3{
+.controll-instruction h3{
   color: white;
   font-style: normal;
   font-weight: 800;
   font-size: 30px;
 }
- div.Breaking-line{
+ .Breaking-line{
   background-color: #21345C;
   min-width: 180px;
   border-radius: 10px;
@@ -206,6 +206,75 @@ div.controll-instruction p{
   font-weight: 400;
   font-size: 20px;
 }
+/*==================== about section =========================*/
+
+section#about{
+  transform: translate(0%, -7.5%);
+  background-color: #3A5285;
+  height: 861px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+section#about::after{
+  background-color: #21345C;
+  content: " ";
+  min-width: 100%;
+  min-height: 90px;
+
+  position: absolute;
+  bottom: -8%;
+}
+
+ section#about div.text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 60%;
+ }
+
+ section#about div.text-container h2{
+  color: #7793CD;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 87px;
+ }
+
+ section#about div.text-container p{
+  height: 250px;
+
+  text-align: center;
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+ }
+
+section#about div.logo-container{
+  /* transform: translate(0, 0); */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height:15%;
+  width: 650px;
+}
+section#about div.logo-container .controll-instruction{
+  justify-content: space-between;
+  height: 150px;
+  text-decoration: none;
+}
+
+section#about div.logo-container .controll-instruction h3{
+  margin: 0;
+}
+
+
 
 /*============== scoreboard section ==============*/
 #scoreboard{
