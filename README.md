@@ -1,6 +1,6 @@
 # wordle-game-clone
 
-## game-api-routs
+## game-api-route
 
 |path| verb| Comment |
 |----------------|-----|-------------------------|
@@ -14,7 +14,7 @@
 
 ---
 
-## highscore-api-routs
+## highscore-api-routes
 
 |path| verb| Comment |
 |----------------|-----|-------------------------|
