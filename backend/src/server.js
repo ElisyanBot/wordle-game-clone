@@ -42,6 +42,11 @@ app
   .use("/api", apiHighscoreRoute)
   .use("/api", apiWordRoute);
 
+//404
+app.all("*",(req, res)=>{
+  res.status(404).render("404page")
+}) 
+
 app.listen(5080, () => {
-  console.log(`Example app listening on port 5080`);
+  console.log(`Express app listening on port 5080`);
 });
