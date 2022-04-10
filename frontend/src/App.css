@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   text-transform: uppercase;
+
 }
 
 body {
@@ -10,10 +11,14 @@ body {
   background: linear-gradient(180deg, #5171b5 0%, rgba(93, 120, 177, 0) 100%),
     #79a7d3;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 /*==================== gamebard ===================*/
@@ -23,7 +28,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 70vh;
-  margin: auto;
 }
 
 .attempt-window{
@@ -82,9 +86,13 @@ li.correct{
 /*=========== header =============*/
 
 /* meny */
-nav.header-nav{
-  transform: translate(1.7%, 0);
+
+header{
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav.header-nav{
   margin: auto;
   display: flex;
   justify-content: center;
@@ -92,7 +100,8 @@ nav.header-nav{
   margin-bottom: 100px;
 }
 
-nav.header-nav ul{
+nav.header-nav ul.header-ul{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +115,7 @@ nav.header-nav ul{
 }
 
 nav.header-nav ul li{
+  width: 217px;
   text-align: center;
   font-size: 25px;
   font-weight: 400;
@@ -114,16 +124,27 @@ nav.header-nav ul li{
 }
 
 nav.header-nav ul li.woordle-logo{
-  margin:0 100px;
+  /* margin:0 100px; */
   background-image: url(D:\Programmering\Lernia\wordle\frontend\public\wordle-logo.svg);
   background-repeat: no-repeat;
   width: 217px;
   height: 100px;
 }
+nav.header-nav ul .exit-btn{
+  position: absolute;
+  right: -15%;
 
-nav.header-nav ul a{
-  color: inherit;
-  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: 400;
+
+  background: none;
+  border: none;
+}
+
+nav.header-nav ul .exit-btn:hover{
+  cursor: pointer;
+  color:#ACDEAB;
 }
 
 /* ================ create game =============== */

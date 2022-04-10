@@ -21,17 +21,19 @@ header{
 
 /* meny */
 nav.header-nav{
-  width: 1150px;
+  display: flex;
+  justify-content: center;
+  width: 1196px;
   height: 102px;
   margin: auto;
 }
 
 nav.header-nav ul{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 110%;
 
   padding: 0px;
   
@@ -40,6 +42,7 @@ nav.header-nav ul{
 }
 
 nav.header-nav ul li{
+  width: 220px;
   text-align: center;
   font-size: 25px;
   font-weight: 400;
@@ -51,7 +54,7 @@ nav.header-nav ul li.woordle-logo{
   background-image: url(./img/wordle-logo.svg);
   background-repeat: no-repeat;
   width: 217px;
-  height: 120px;
+  height: 110px;
 }
 
 nav.header-nav ul a{
@@ -66,7 +69,7 @@ nav.header-nav ul a:hover {
 /*====== welcome ======== */
 
 div.welcome-msg{
-  transform: translate(6%, 25%);
+  transform: translate(0, 25%);
 
   display: flex;
   flex-direction: column;
@@ -151,7 +154,7 @@ section#controll{
 }
 
 section#controll h2{
-  transform: translate(6%, 50%);
+  transform: translate(0, 50%);
   
   color: #2E4370;
   font-weight: 700;
@@ -161,7 +164,7 @@ section#controll h2{
 }
 
 section#controll div.test{
-  transform: translate(4%, 0);
+  /* transform: translate(0, 0); */
   display: flex;
   align-items: center;
   height: 60%;
@@ -211,7 +214,7 @@ div.controll-instruction p{
   flex-direction: column;
   align-items: center;
 
-  transform: translate(3%, 0%);
+  /* transform: translate(3%, 0%); */
   
   width: 1196px;
   margin: 150px auto 0 auto ;
