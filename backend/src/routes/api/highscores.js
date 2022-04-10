@@ -18,21 +18,13 @@ route.get("/highscores", async (req, res) => {
     data = await Highscores.find().lean();
   }
 
-  const newData = data.map((item) => ({
-    userName: item.userName,
-    wordleWord: item.wordleWord,
-    attempts: item.attempts,
-    completeTime: item.completeTime,
-  }));
-
   //pagnation
   if (req.query.pageSize > 0) {
     return res.send(
-      pagination(await newData, req.query.pageSize, req.query.pageNr)
+      pagination(await data, req.query.pageSize, req.query.pageNr)
     );
   }
-
-  res.send(newData);
+  res.send(data);
 });
 
 //post
